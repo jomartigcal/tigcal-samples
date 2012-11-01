@@ -1,6 +1,9 @@
 <resources>
 
     <string name="app_name">LBS-Android Sample</string>
+    <string name="foursquare_client_id">ADD_FOURSQUARE_CLIENT_ID_HERE</string>
+	<string name="foursquare_client_secret">ADD_FOURSQUARE_CLIENT_SECRET_HERE</string>
+    
     <string name="title_foursquare_example">Foursquare API Example</string>
 	<string name="label_get_foursquare_venues">Get venues via Foursquare API</string>
 </resources>

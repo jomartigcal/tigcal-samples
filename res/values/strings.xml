@@ -6,4 +6,5 @@
     
     <string name="title_foursquare_example">Foursquare API Example</string>
 	<string name="label_get_foursquare_venues">Get venues via Foursquare API</string>
+	<string name="label_loading">Loading&#8230;</string>
 </resources>

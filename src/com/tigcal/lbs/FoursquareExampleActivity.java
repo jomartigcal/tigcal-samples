@@ -1,5 +1,7 @@
 package com.tigcal.lbs;
 
+import com.tigcal.lbs.adapter.LoadingAdapter;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -51,7 +53,9 @@ public class FoursquareExampleActivity extends Activity {
 		
 		@Override
 		protected void onPostExecute(CompactVenue[] venues) {
-			updatePlacesList(venues);
+			if(venues != null) {
+				updatePlacesList(venues);
+			}
 			super.onPostExecute(venues);
 		}
 
@@ -62,6 +66,9 @@ public class FoursquareExampleActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_foursquare);
 
+		ListView listView = (ListView) findViewById(R.id.venues_list);
+		listView.setAdapter(new LoadingAdapter());
+		
 		displayFoursquareVenues();
 	}
 
@@ -105,7 +112,9 @@ public class FoursquareExampleActivity extends Activity {
 		try {
 			Result<VenuesSearchResult> results = foursquareApi.venuesSearch(String.valueOf(location.getLatitude()) + "," + String.valueOf(location.getLongitude()), null, null, null, null, null, null, null, null, null, null, 
 					500, null);
-			venues = results.getResult().getVenues();
+			if(results !=null && results.getResult()!= null) {
+				venues = results.getResult().getVenues();
+			}
 		} catch (FoursquareApiException exception) {
 			Log.d("Foursquare", exception.getMessage());
 			Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();

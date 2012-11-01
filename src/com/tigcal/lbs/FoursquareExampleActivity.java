@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -30,7 +31,9 @@ public class FoursquareExampleActivity extends Activity {
 
 	LocationListener locationListener = new LocationListener() {
 		public void onLocationChanged(Location location) {
-			displayPlaces(location);
+			GetInfoPagesTask displayPlacesTask = new GetInfoPagesTask();
+			displayPlacesTask.execute(location);
+
 			locationManager.removeUpdates(this);
 		}
 
@@ -38,6 +41,21 @@ public class FoursquareExampleActivity extends Activity {
 		public void onProviderEnabled(String provider) {}
 		public void onStatusChanged(String provider, int status, Bundle extras) {}
 	};
+	
+	private class GetInfoPagesTask extends AsyncTask<Location, Void, CompactVenue[]> {
+
+		@Override
+		protected CompactVenue[] doInBackground(Location... params) {
+			return displayPlaces(params[0]);
+		}
+		
+		@Override
+		protected void onPostExecute(CompactVenue[] venues) {
+			updatePlacesList(venues);
+			super.onPostExecute(venues);
+		}
+
+	}
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -81,18 +99,18 @@ public class FoursquareExampleActivity extends Activity {
 		}
 	}
 	
-	private void displayPlaces(Location location) {
+	private CompactVenue[] displayPlaces(Location location) {
+		CompactVenue[] venues = null;
 		FoursquareApi foursquareApi = new FoursquareApi(getString(R.string.foursquare_client_id), getString(R.string.foursquare_client_secret), "http://www.example.com");
 		try {
 			Result<VenuesSearchResult> results = foursquareApi.venuesSearch(String.valueOf(location.getLatitude()) + "," + String.valueOf(location.getLongitude()), null, null, null, null, null, null, null, null, null, null, 
 					500, null);
-			CompactVenue[] venues = results.getResult().getVenues();
-			updatePlacesList(venues);
+			venues = results.getResult().getVenues();
 		} catch (FoursquareApiException exception) {
 			Log.d("Foursquare", exception.getMessage());
 			Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();
 		}
-		
+		return venues;
 	}
 
 	private void updatePlacesList(CompactVenue[] venues) {

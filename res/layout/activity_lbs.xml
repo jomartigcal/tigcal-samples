@@ -7,9 +7,18 @@
         android:id="@+id/location_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         tools:context=".LBSActivity" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/location_text_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:onClick="openFoursquareExample"
+        android:text="@string/label_get_foursquare_venues" />
 
 </RelativeLayout>

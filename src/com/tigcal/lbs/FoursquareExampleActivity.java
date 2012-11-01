@@ -11,26 +11,38 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.view.View;
-import android.widget.TextView;
 
-public class GetLocation extends Activity {
+public class FoursquareExampleActivity extends Activity {
 
 	private LocationManager locationManager;
+	private Location location;
 
+	LocationListener locationListener = new LocationListener() {
+		public void onLocationChanged(Location location) {
+			displayPlaces(location);
+			locationManager.removeUpdates(this);
+		}
+
+		public void onProviderDisabled(String provider) {}
+		public void onProviderEnabled(String provider) {}
+		public void onStatusChanged(String provider, int status, Bundle extras) {}
+	};
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_lbs);
+		setContentView(R.layout.activity_foursquare);
 
-		 locationManager = (LocationManager) this
+		displayFoursquareVenues();
+	}
+
+	private void displayFoursquareVenues() {
+		locationManager = (LocationManager) this
 				.getSystemService(Context.LOCATION_SERVICE);
 
-		// check if location services is enabled
 		final boolean gpsEnabled = locationManager
 				.isProviderEnabled(LocationManager.GPS_PROVIDER);
 		if (!gpsEnabled) {
-			// Alert user that location settings is disabled
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle(getString(R.string.app_name));
 			builder.setPositiveButton(getString(android.R.string.yes),
@@ -38,7 +50,6 @@ public class GetLocation extends Activity {
 
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
-					// Open Location services
 					Intent settingsIntent = new Intent(
 							Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 					startActivity(settingsIntent);
@@ -58,24 +69,10 @@ public class GetLocation extends Activity {
 					LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
 		}
 	}
-
-	LocationListener locationListener = new LocationListener() {
-		public void onLocationChanged(Location location) {
-			displayLocation(location);
-			locationManager.removeUpdates(this);
-		}
-
-		public void onProviderDisabled(String provider) {}
-		public void onProviderEnabled(String provider) {}
-		public void onStatusChanged(String provider, int status, Bundle extras) {}
-	};
-
-	private void displayLocation(Location location) {
-		TextView locationTextView = (TextView) findViewById(R.id.location_text_view);
-		locationTextView.setText("Location: (" + location.getLatitude() + ", " + location.getLongitude() + ")");
+	
+	private void displayPlaces(Location location) {
+		// TODO
+		
 	}
 	
-	public void openFoursquareExample(View view) {
-		startActivity(new Intent(this, FoursquareExampleActivity.class));
-	}
 }

@@ -33,7 +33,7 @@ public class FoursquareExampleActivity extends Activity {
 
 	LocationListener locationListener = new LocationListener() {
 		public void onLocationChanged(Location location) {
-			GetInfoPagesTask displayPlacesTask = new GetInfoPagesTask();
+			DisplayPlacesTask displayPlacesTask = new DisplayPlacesTask();
 			displayPlacesTask.execute(location);
 
 			locationManager.removeUpdates(this);
@@ -44,7 +44,7 @@ public class FoursquareExampleActivity extends Activity {
 		public void onStatusChanged(String provider, int status, Bundle extras) {}
 	};
 	
-	private class GetInfoPagesTask extends AsyncTask<Location, Void, CompactVenue[]> {
+	private class DisplayPlacesTask extends AsyncTask<Location, Void, CompactVenue[]> {
 
 		@Override
 		protected CompactVenue[] doInBackground(Location... params) {

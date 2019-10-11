@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Email Validator</string>
+    <string name="email_address">Email Address</string>
+
+    <string name="email_address_no_input">Please provide an email address.</string>
+    <string name="email_address_no_at">The email address must have an @ character.</string>
+    <string name="email_address_many_ats">The email address must have only one @ character.</string>
+    <string name="email_address_valid">The email address is valid.</string>
+    <string name="email_address_invalid">The email address is of an invalid format.</string>
+    <string name="email_address_invalid_email">Specified email is not a valid email address syntax.</string>
+    <string name="email_address_invalid_domain">Domain for email does not exist.</string>
+    <string name="email_addressrejected_email">Email address was rejected by the SMTP server, email address does not exist.</string>
+    <string name="email_address_low_quality">Email address has quality issues that may make it a risky or low-value address.</string>
+    <string name="email_address_low_deliverability">Email address appears to be deliverable, but deliverability cannot be guaranteed.</string>
+    <string name="email_address_no_connect">Could not connect to SMTP server.</string>
+    <string name="email_address_timeout">SMTP session timed out.</string>
+    <string name="email_address_invalid_smtp">SMTP server returned an unexpected/invalid response.</string>
+    <string name="email_address_unavailable_smtp">SMTP server was unavailable to process our request.</string>
+    <string name="email_address_unexpected_error">An unexpected error has occurred.</string>
+
+    <string name="ok">OK</string>
+</resources>

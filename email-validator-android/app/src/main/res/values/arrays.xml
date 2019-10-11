@@ -1,0 +1,11 @@
+<resources>
+    <string-array name="domains">
+        <item>aol.com</item>
+        <item>gmail.com</item>
+        <item>hotmail.com</item>
+        <item>live.com</item>
+        <item>mail.com</item>
+        <item>rocketmail.com</item>
+        <item>yahoo.com</item>
+    </string-array>
+</resources>

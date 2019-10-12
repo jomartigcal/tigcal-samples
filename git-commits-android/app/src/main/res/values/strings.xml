@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Git Commits</string>
+
+    <string name="error_getting_commits">There was an error getting the commits. Please try again later.</string>
+    <string name="error_no_url">The committer URL is not available</string>
+
+    <string name="button_ok">OK</string>
+
+    <string name="icon_description">Icon</string>
+    <string name="icon_description_close">Close</string>
+
+    <string name="label_date">Date: %s</string>
+    <string name="label_login">Login: %s</string>
+    <string name="label_message">Message: %s</string>
+    <string name="label_sha">SHA: %s</string>
+</resources>

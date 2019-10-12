@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tigcal.samples.gitcommits.fragment.ListFragment"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_main">
+
+    <fragment
+        android:id="@+id/details_fragment"
+        android:name="com.tigcal.samples.gitcommits.fragment.DetailsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout="@layout/fragment_details" />
+
+    <fragment
+        android:id="@+id/list_fragment"
+        android:name="com.tigcal.samples.gitcommits.fragment.ListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/details_fragment"
+        tools:layout="@layout/fragment_list" />
+</android.support.constraint.ConstraintLayout>

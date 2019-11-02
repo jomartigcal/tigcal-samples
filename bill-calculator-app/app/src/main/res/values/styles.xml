@@ -1,0 +1,16 @@
+<resources>
+
+    <style name="AppTheme.BillCalc" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/bc_primary</item>
+        <item name="colorPrimaryDark">@color/bc_primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorButtonNormal">@color/bc_primary</item>
+    </style>
+
+    <style name="AppTheme.BillCalc.LaunchScreen">
+        <item name="android:windowBackground">@drawable/bc_launch_screen</item>
+    </style>
+
+</resources>

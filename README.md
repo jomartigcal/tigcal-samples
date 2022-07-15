@@ -8,4 +8,5 @@ Collection of Personal Sample Projects
  - [git-commits-android](git-commits-android)
  - [google-drive-api-java-sample](google-drive-api-java-sample)
  - [lbs-android-sample](lbs-android-sample)
+ - [user-directory-app](user-directory-app)
  - [wedding-app](wedding-app)

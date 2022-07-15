@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">User Directory</string>
+
+    <string name="user_photo">User Photo</string>
+
+    <string name="users_empty">There are no users to display</string>
+</resources>

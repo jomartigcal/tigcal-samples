@@ -10,3 +10,5 @@ Collection of Personal Sample Projects
  - [lbs-android-sample](lbs-android-sample)
  - [user-directory-app](user-directory-app)
  - [wedding-app](wedding-app)
+
+New sample projects are available at [https://github.com/TigcalSamples](https://github.com/TigcalSamples)
